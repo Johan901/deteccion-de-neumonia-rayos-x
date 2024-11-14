@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico de Neumonía - Grey Sloan Memorial Hospital</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" href="https://img.icons8.com/color/48/000000/hospital-3.png" type="image/png">
+    <style>
+        .alert {
+            padding: 20px;
+            color: white;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .alert.neumonia {
+            background-color: #f44336; 
+        }
+        .alert.normal {
+            background-color: #4CAF50; 
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+  
+    <header>
+        <div class="logo">
+            <img src="https://img.icons8.com/color/96/000000/hospital-room.png" alt="Grey Sloan Memorial Hospital Logo">
+            <h1>Grey Sloan Memorial Hospital</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="diagnostico">
+            <h2>Diagnóstico de Neumonía</h2>
+            <p>Sube una imagen de rayos X de tórax para obtener un diagnóstico inmediato.</p>
+            <form action="/predict" method="post" enctype="multipart/form-data">
+                <label class="custom-file-upload">
+                    <input type="file" name="file" accept="image/*" required>
+                    <span>Elegir archivo</span>
+                </label>
+                <button type="submit">Obtener Diagnóstico</button>
+            </form>
+
+            {% if img_path %}
+            <h3>Imagen Cargada:</h3>
+            <img src="{{ url_for('static', filename='uploaded_image.jpg') }}" alt="Imagen de rayos X">
+            {% endif %}
+
+            {% if resultado %}
+            <div class="alert {% if 'normal' in resultado|lower %}normal{% else %}neumonia{% endif %}">
+                <strong>{{ resultado }}</strong>
+            </div>
+            {% endif %}
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Grey Sloan Memorial Hospital. Todos los derechos reservados.</p>
+        <p>Dirección: 123 Grey St, Seattle, WA 98104 | Teléfono: (555) 555-1234</p>
+    </footer>
+</body>
+</html>
