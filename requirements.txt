@@ -1,0 +1,4 @@
+Flask==2.0.1                 # Framework web para la aplicación
+tensorflow==2.8.0            # Para cargar y ejecutar el modelo de Keras
+numpy==1.22.0                # Para manipulación de matrices y procesamiento de imágenes
+Pillow==9.0.1                # Para cargar y procesar imágenes (usado por keras.preprocessing)
