@@ -1,1 +1,1 @@
-# deteccion-de-neumonia-rayos-x
+# Diagnóstico de Neumonía con Flask y Red Neuronal Convolucional (CNN)
