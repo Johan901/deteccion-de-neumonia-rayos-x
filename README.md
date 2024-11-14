@@ -19,18 +19,6 @@ Este proyecto consiste en una aplicación web que utiliza un modelo de red neuro
 3. **Mostrar resultados**: Después de realizar la predicción, se muestra un mensaje indicando si el paciente tiene neumonía o está sano, junto con la imagen cargada.
 4. **Interfaz visual**: La interfaz de usuario tiene un diseño simple con un formulario de carga y una sección de resultados.
 
-## Estructura del Proyecto
-
-/diagnostico-neumonia
-    ├── /static
-    │   ├── /css
-    │   │   └── styles.css
-    ├── /templates
-    │   └── index.html
-    ├── app.py
-    ├── modelo_neumonia.keras
-    ├── requirements.txt
-    └── README.md
 
 # Funcionamiento del Modelo
 El modelo de neumonía está basado en una red neuronal convolucional (CNN) entrenada en un conjunto de datos de imágenes de rayos X de tórax. El modelo utiliza capas de convolución para detectar patrones en las imágenes y determinar si el paciente tiene neumonía o está sano.
